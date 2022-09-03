@@ -18,7 +18,14 @@ const Register = () => {
                 <label htmlFor='password'>PassWord</label>
                 <input type='password' name ='password'/>
             </div>
+            
+            <div className='btn_container'>
+                <button className='btn'>
+                Register
+                </button>
+            </div>
         </form>
+
       
     </section>
   )
