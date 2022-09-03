@@ -73,3 +73,7 @@ section .form{
 .btn:hover{
     transform: scale(1.05);
 }
+.error{
+    text-align: center;
+    color: var(--color-5);
+}
