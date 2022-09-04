@@ -1,7 +1,7 @@
-import { useState } from "react"
-import React  from 'react'
+import React ,{ useState } from 'react'
+import {setDoc, doc, Timestamp} from 'firebase/firestore'
 import {createUserWithEmailAndPassword} from "firebase/auth"
-import {auth} from  "../firebase"
+import {auth,db} from  "../firebase"
 const Register = () => {
     const [data ,setData] = useState({
         name: "",
@@ -17,14 +17,25 @@ const Register = () => {
     }
     const handleSubmit= async e =>{
         e.preventDefault()
+        setData({...data,error:null,loading:true})
         if(!name || !email || !password){
             setData({...data, error:'All fields are required'})
         }
         try {
             const result = await createUserWithEmailAndPassword(auth,email,password)
-            console.log(result.user)
-        } catch (err) {
-            
+            await setDoc(doc(db , 'users',result.user.uid),{
+                uid:result.user.uid,
+                name,
+                email,
+                createdAt:Timestamp.fromDate(new Date()),
+                isOnLine:true
+
+            })
+            setData({name:'',email:'',password:'',error:null,loading:false})
+        } 
+        
+        catch (err) {
+            setData({...data,error:err.message,loading:false})
         }
 
     }
