@@ -2,7 +2,9 @@ import React ,{ useState } from 'react'
 import {setDoc, doc, Timestamp} from 'firebase/firestore'
 import {createUserWithEmailAndPassword} from "firebase/auth"
 import {auth,db} from  "../firebase"
+import {useNavigate} from "react-router-dom"
 const Register = () => {
+    const navigate = useNavigate()
     const [data ,setData] = useState({
         name: "",
         email: "",
@@ -31,9 +33,9 @@ const Register = () => {
                 isOnLine:true
 
             })
-            setData({name:'',email:'',password:'',error:null,loading:false})
+            setData({name:'',email:'',password:'',error:null,loading:false}) 
+        navigate("/")
         } 
-        
         catch (err) {
             setData({...data,error:err.message,loading:false})
         }
@@ -59,7 +61,7 @@ const Register = () => {
             </div>
             {error ? <p className='error'>{error}</p>:null}
             <div className='btn_container'>
-                <button className='btn'>
+                <button className='btn' disabled={loading}>
                 Register
                 </button>
             </div>
