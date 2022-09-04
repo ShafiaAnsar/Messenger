@@ -6,17 +6,16 @@ import {getAuth} from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL:process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSENGER_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
+  apiKey:"AIzaSyBLvY7O4MgnbkVWqbT4yaaYhmUdqSK3HK8",
+  authDomain: "messenger-b064a.firebaseapp.com",
+  databaseURL:"https://messenger-b064a.firebaseio.com",
+  projectId:"messenger-b064a",
+  storageBucket: "messenger-b064a.appspot.com",
+  messagingSenderId: "749771102057",
+  appId:"1:749771102057:web:111263809255eda5d44ff8",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
-// export {auth}
-export default auth
+const auth = getAuth(app);
+export {auth}
