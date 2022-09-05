@@ -8,7 +8,7 @@ const PrivateRoute = ({component:Component,...rest}) => {
       {...rest}
       exact
       render={(props) =>
-        user ? <Component {...props} /> : <Navigate to="/login" />
+        user ? <Component {...props} /> : <Navigate to="/login"/>
       }
     />
   );
