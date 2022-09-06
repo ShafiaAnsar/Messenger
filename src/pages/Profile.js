@@ -2,6 +2,7 @@ import React from 'react'
 import Camera from '../components/svg/Camera'
 const Profile = () => {
   return (
+    <section>
     <div className='profile_container'>
       <div className='img_container'>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyCbJoUCRscGfzySEtqoR5HtHnEOE0ux4r-A&usqp=CAU' alt='img' />
@@ -14,13 +15,14 @@ const Profile = () => {
             </div>
         </div>
       </div>
-      <div className='text_container'>
+      <div className='text_container-profile'>
         <h3>User Name</h3>
         <p> User Email</p>
         <hr/>
         <small>Joined on : ...</small>
       </div>
     </div>
+    </section>
   )
 }
 
