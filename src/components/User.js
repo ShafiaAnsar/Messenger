@@ -9,9 +9,9 @@ const User = ({user}) => {
                 <img src={user.avatar || Img} alt='avatar' className='avatar'/>
                 <h4>{user.name}</h4>
             </div>
-            <div className={`user_status ${user.isOnline? 'online':'offline' }`}>
-                
-            </div>
+            <div
+            className={`user_status ${user.isOnLine ? "online" : "offline"}`}
+          ></div>
         </div>
       
     </div>

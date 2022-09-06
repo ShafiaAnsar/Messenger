@@ -156,8 +156,8 @@ margin-left: 10px;
     border-radius: 50%;
 }
 .online{
-    background-color:#34eb52 ;
-}
-.offline{
-    background-color: var(--color-5);
-}
+    background: #34eb52;
+  }
+.offline {
+    background: var(--color-5);
+  }
