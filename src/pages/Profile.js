@@ -77,7 +77,7 @@ const Profile = () => {
               <label htmlFor="photo">
                 <Camera />
               </label>
-              {user.avatar ? <Delete onClick={deleteImage} /> : null}
+              {user.avatar ? <Delete deleteImage={deleteImage} /> : null}
               <input
                 type="file"
                 accept="image/*"
