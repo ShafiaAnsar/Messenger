@@ -107,9 +107,9 @@ section .form{
     transform: translate(-50%,50%);
     text-align: center;
 }
-.text_container-profile{
+.text_container{
     flex-grow: 1;
 }
-.text_container-profile>h3{
+.text_container>h3{
     text-align: left;
 }
