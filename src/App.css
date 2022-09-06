@@ -161,3 +161,17 @@ margin-left: 10px;
 .offline {
     background: var(--color-5);
   }
+.messages_container{
+    position: relative;
+    width: 100%;
+}
+.message_user{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid var(--color-6);
+}
+.no_conv{
+    font-size: 20px;
+    text-align: center;
+    color: var(--color-4);
+}
