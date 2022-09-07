@@ -1,11 +1,13 @@
 import React,{useEffect,useState} from 'react'
 import {db,auth} from '../firebase'
-import {collection,query,where,onSnapshot} from 'firebase/firestore'
+import {collection,query,where,onSnapshot, addDoc, Timestamp} from 'firebase/firestore'
 import User from '../components/User'
 import MessageForm from '../components/MessageForm'
 const Home = () => {
   const [users,setUsers] = useState([])
   const [chat,setChat] = useState('')
+  const [text,setText] = useState('')
+  const user1 = auth.currentUser.uid
   useEffect(()=>{
   const userRef = collection(db,'users')
   //create query
@@ -24,6 +26,18 @@ const Home = () => {
   console.log(user)
   setChat(user)
  }
+ const handleSubmit = async e =>{
+  e.preventDefault()
+  const user2 = chat.uid
+  const id = user1 > user2 ?`${user1 + user2}`:`${user2 + user1}`
+  await addDoc(collection(db,'messages',id ,'chat' ),{
+    text,
+    from:user1,
+    to:user2,
+    createdAt:Timestamp.fromDate(new Date()),
+  })
+  setText('')
+}
   return (
     <div className='home_container'>
       <div className='users_container'>
@@ -37,7 +51,9 @@ const Home = () => {
         <div className='message_user'>
           <h3>{chat.name}</h3>
         </div>
-        <MessageForm/>
+        <MessageForm handleSubmit={handleSubmit}
+         text={text}
+         setText={setText}/>
         </>):(
         <h3 className='no_conv'>Select a user to start conversation</h3>)
          }
