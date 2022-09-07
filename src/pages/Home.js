@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import {db,auth,storage} from '../firebase'
-import {collection,query,where,onSnapshot, addDoc, Timestamp} from 'firebase/firestore'
+import {collection,query,where,onSnapshot, addDoc, Timestamp,orderBy} from 'firebase/firestore'
 import User from '../components/User'
 import {
   ref,
@@ -8,10 +8,12 @@ import {
   uploadBytes,
 } from "firebase/storage"
 import MessageForm from '../components/MessageForm'
+import Message from '../components/Message'
 const Home = () => {
   const [users,setUsers] = useState([])
   const [chat,setChat] = useState('')
   const [text,setText] = useState('')
+  const[msgs,setMsgs] = useState([])
   const [img,setImg] = useState('')
 
   const user1 = auth.currentUser.uid
@@ -32,7 +34,19 @@ const Home = () => {
  const selectUser =(user)=>{
   console.log(user)
   setChat(user)
+  const user2 = user.uid
+  const id = user1 > user2 ?`${user1 + user2}`:`${user2 + user1}`
+  const msgRef = collection(db,'messages',id ,'chat' )
+  const q = query(msgRef,orderBy('createdAt','asc'))
+  onSnapshot(q, querySnapshot=>{
+    let msgs =[]
+    querySnapshot.forEach(doc=>{
+      msgs.push(doc.data())
+    })
+    setMsgs(msgs)
+  })
  }
+ console.log(msgs)
  const handleSubmit = async e =>{
   e.preventDefault()
   const user2 = chat.uid
@@ -65,6 +79,9 @@ const Home = () => {
         (<>
         <div className='message_user'>
           <h3>{chat.name}</h3>
+        </div>
+        <div className='messages'>
+          {msgs.length?msgs.map((msg,i)=><Message key={i} msg={msg}/>):null}
         </div>
         <MessageForm handleSubmit={handleSubmit}
          text={text}
