@@ -242,3 +242,10 @@ color: white;
 .truncate strong{
     margin-right: 10px;
 }
+.unread{
+    margin-left: 10px;
+    background: var(--color-3);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 10px;
+}

@@ -19,6 +19,9 @@ const User = ({user,user1,selectUser,chat}) => {
             <div className='user_detail'>
                 <img src={user.avatar || Img} alt='avatar' className='avatar'/>
                 <h4>{user.name}</h4>
+                {data?.from !== user1 && data?.unread &&(
+                  <small className='unread'>New</small>
+                )}
             </div>
             <div
             className={`user_status ${user.isOnLine ? "online" : "offline"}`}
