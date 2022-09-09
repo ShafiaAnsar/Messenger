@@ -9,19 +9,17 @@ import AuthProvider from './context/auth';
 import Profile from './pages/Profile';
 function App() {
     return (
-  <AuthProvider>
-    <BrowserRouter>
-      <Navbar/>
-          <Routes>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route exact path='/' element={<Home/>}/>
+      <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/" component={Home} />
         </Routes>
-    </BrowserRouter>
-  </AuthProvider>  
-    
- 
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
