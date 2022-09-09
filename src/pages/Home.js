@@ -52,7 +52,7 @@ const Home = () => {
     const q = query(msgsRef, orderBy("createdAt", "asc"));
 
     onSnapshot(q, (querySnapshot) => {
-      let msgs = [];
+      let msgs = [];  
       querySnapshot.forEach((doc) => {
         msgs.push(doc.data());
       });

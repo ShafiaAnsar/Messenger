@@ -259,6 +259,7 @@ color: white;
     .message_form{
         left: 3%;
         right: 0;
+        bottom: 5px;
     }
     .message_wrapper p{
         max-width: 75%;
@@ -283,6 +284,9 @@ color: white;
     .message_form input{
         width: 50vw;
         margin: 0px 10px;
+    }
+    .message_form .btn{
+        margin: 0px;
     }
     .message_wrapper p{
         max-width: 100%;
