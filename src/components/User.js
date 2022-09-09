@@ -13,7 +13,7 @@ const User = ({user,user1,selectUser,chat}) => {
         )
         return()=>unsub()
   },[])
-    return (
+    return (<>
     <div className={`user_wrapper ${chat.name === user.name && 'selected_user'}`}onClick={() => selectUser(user)}>
         <div className='user_info'>
             <div className='user_detail'>
@@ -32,7 +32,11 @@ const User = ({user,user1,selectUser,chat}) => {
          <strong>{data.from === user1 ?"Me:":null}</strong>
           {data.text}</p>
       )}
-    </div> 
+    </div>
+    <div onClick={()=>selectUser(user)} className={`sm-container ${chat.name === user.name && 'selected_user'}`}>
+    <img src={user.avatar || Img} alt='avatar' className='avatar sm-screen'/>
+    </div>
+    </>
   )
 }
 
