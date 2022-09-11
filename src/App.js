@@ -11,12 +11,14 @@ function App() {
     return (
       <AuthProvider>
       <BrowserRouter>
-        <Navbar />
+      
         <Routes>
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/" component={Home} />
+        {/* <Navbar /> */}
+          <Route   path="/"element={<Navbar/>}/>
+          <Route  path="/register"element={<Register/>} />
+          <Route  path="/login" element={<Login/>} />
+          <Route  path="/profile" element={<Profile/>} />
+          <Route path="/" element={<Home/>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
