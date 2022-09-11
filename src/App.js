@@ -13,12 +13,10 @@ function App() {
       <BrowserRouter>
       
         <Routes>
-        {/* <Navbar /> */}
-          <Route   path="/"element={<Navbar/>}/>
-          <Route  path="/register"element={<Register/>} />
-          <Route  path="/login" element={<Login/>} />
-          <Route  path="/profile" element={<Profile/>} />
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<> <Navbar/><Home/></>} />
+          <Route  path="/register"element={<><Navbar/><Register/></>} />
+          <Route  path="/login" element={<><Navbar/><Login/></>} />
+          <Route  path="/profile" element={<><Navbar/><Login/></>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
