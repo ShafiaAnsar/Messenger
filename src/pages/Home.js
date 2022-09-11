@@ -25,8 +25,7 @@ const Home = () => {
   const [img, setImg] = useState("");
   const [msgs, setMsgs] = useState([]);
 
-  const user1 = auth.currentUser.uid;
-
+  const user1 = users
   useEffect(() => {
     const usersRef = collection(db, "users");
     // create query object
